@@ -89,3 +89,13 @@
 5. Enter 4  
 6. Press '='  
 **Expected Result:** Display shows 14  
+
+---
+## Summary
+This document contains 9 test cases for a simple calculator application, covering:
+- Core operations (add, subtract, multiply, divide)
+- Special cases (decimals, negative numbers)
+- Invalid inputs (division by zero, non-numeric input)
+- Order of operations (BODMAS)
+
+All test cases include ID, description, preconditions, steps, and expected results.
