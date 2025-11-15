@@ -47,3 +47,13 @@
 3. Enter 3.5  
 4. Press '='  
 **Expected Result:** Display shows 6.0
+
+### TC_CALC_006
+**Description:** Division involving a negative number  
+**Preconditions:** Calculator is open  
+**Test Steps:**  
+1. Enter -12  
+2. Press '/'  
+3. Enter 3  
+4. Press '='  
+**Expected Result:** Display shows -4
