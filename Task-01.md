@@ -57,3 +57,13 @@
 3. Enter 3  
 4. Press '='  
 **Expected Result:** Display shows -4
+
+### TC_CALC_007
+**Description:** Division by zero  
+**Preconditions:** Calculator is open  
+**Test Steps:**  
+1. Enter 9  
+2. Press '/'  
+3. Enter 0  
+4. Press '='  
+**Expected Result:** Error message displayed (e.g., "Cannot divide by zero")
