@@ -67,3 +67,13 @@
 3. Enter 0  
 4. Press '='  
 **Expected Result:** Error message displayed (e.g., "Cannot divide by zero")
+
+### TC_CALC_008
+**Description:** Addition with non-numeric input  
+**Preconditions:** Calculator is open  
+**Test Steps:**  
+1. Enter 'abc'  
+2. Press '+'  
+3. Enter 5  
+4. Press '='  
+**Expected Result:** Error message displayed (e.g., "Invalid input")
