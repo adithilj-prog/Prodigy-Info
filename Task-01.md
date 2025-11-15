@@ -37,3 +37,13 @@
 3. Enter 4  
 4. Press '='  
 **Expected Result:** Display shows 5
+
+### TC_CALC_005
+**Description:** Addition of two decimal numbers  
+**Preconditions:** Calculator is open  
+**Test Steps:**  
+1. Enter 2.5  
+2. Press '+'  
+3. Enter 3.5  
+4. Press '='  
+**Expected Result:** Display shows 6.0
