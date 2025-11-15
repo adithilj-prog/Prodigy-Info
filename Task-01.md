@@ -27,5 +27,3 @@
 3. Enter 6
 4. Press '='  
 **Expected Result:** Display shows 42
-5. Press '='  
-**Expected Result:** Display shows 42
