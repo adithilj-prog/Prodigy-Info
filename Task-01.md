@@ -77,3 +77,15 @@
 3. Enter 5  
 4. Press '='  
 **Expected Result:** Error message displayed (e.g., "Invalid input")
+
+### TC_CALC_009
+**Description:** Order of operations (BODMAS)  
+**Preconditions:** Calculator is open  
+**Test Steps:**  
+1. Enter 2  
+2. Press '+'  
+3. Enter 3  
+4. Press '*'  
+5. Enter 4  
+6. Press '='  
+**Expected Result:** Display shows 14  
