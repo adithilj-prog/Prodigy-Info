@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Demo E‑com | Prodigy Task‑02</title>
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --dark: #0f172a;
+      --light: #ffffff;
+      --muted: #64748b;
+      --bg: #f8fafc;
+      --accent: #ef4444;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--dark); }
+
+    /* Navbar */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--light); border-bottom: 1px solid #e2e8f0;
+    }
+    .nav {
+      max-width: 1100px; margin: 0 auto; padding: 12px 16px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand { font-weight: 700; color: var(--primary); }
+    .links a {
+      margin-left: 16px; text-decoration: none; color: var(--dark);
+      padding: 6px 10px; border-radius: 6px;
+    }
+    .links a:hover { background: #eef2ff; }
+    .cart-pill {
+      background: var(--primary); color: var(--light);
+      border-radius: 999px; padding: 6px 12px;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(120deg, #1e293b, #334155);
+      color: var(--light); text-align: center; padding: 48px 16px;
+    }
+    .hero h1 { margin: 0 0 12px; font-size: 2rem; }
+    .hero p { margin: 0 0 20px; color: #cbd5e1; }
+    .hero .cta {
+      background: var(--primary); color: var(--light); border: none;
+      padding: 12px 18px; border-radius: 8px; cursor: pointer;
+    }
+    .hero .cta:active { transform: scale(0.98); }
+
+    /* Grid */
+    .container { max-width: 1100px; margin: 24px auto; padding: 0 16px; }
+    .grid {
+      display: grid; gap: 16px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .card {
+      background: var(--light); border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .card img { width: 100%; height: 160px; object-fit: cover; }
+    .card-body { padding: 12px; flex: 1; display: flex; flex-direction: column; }
+    .price { font-weight: 700; color: var(--dark); margin: 8px 0; }
+    .rating { color: #f59e0b; font-size: 14px; }
+    .actions { display: flex; gap: 8px; margin-top: auto; }
+    .btn {
+      flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #e2e8f0; background: #f1f5f9; cursor: pointer;
+    }
+    .btn.primary { background: var(--primary); color: var(--light); border: none; }
+    .btn.danger { background: var(--accent); color: var(--light); border: none; }
+
+    /* Form */
+    .form {
+      background: var(--light); border: 1px solid #e2e8f0; border-radius: 12px;
+      padding: 16px; margin-top: 24px;
+    }
+    .form h3 { margin-top: 0; }
+    .field { margin-bottom: 12px; }
+    label { display: block; margin-bottom: 6px; color: var(--muted); }
+    input, select {
+      width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px;
+    }
+    .submit { margin-top: 8px; }
+    .note { color: var(--muted); font-size: 14px; }
+
+    /* Footer */
+    footer {
+      margin-top: 40px; padding: 24px 16px; text-align: center; color: var(--muted);
+    }
+
+    /* Modal (functionality check) */
+    .modal-backdrop {
+      position: fixed; inset: 0; background: rgba(2, 6, 23, 0.6);
+      display: none; align-items: center; justify-content: center;
+    }
+    .modal {
+      width: 90%; max-width: 420px; background: var(--light); border-radius: 12px; padding: 16px;
+      box-shadow: 0 10px 30px rgba(2, 6, 23, 0.25);
+    }
+    .modal h3 { margin: 0 0 8px; }
+    .modal .row { display: flex; gap: 8px; margin-top: 12px; }
+    .modal .row .btn { flex: 1; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .links { display: none; } /* test hamburger fallback absence */
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .hero h1 { font-size: 1.6rem; }
+    }
+    @media (max-width: 480px) {
+      .grid { grid-template-columns: 1fr; }
+      .card img { height: 140px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+      <div class="brand">Demo E‑com</div>
+      <div class="links">
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+        <a href="/missing-page">Sale</a> <!-- Intentional broken link for testing -->
+        <a class="cart-pill" href="#cart" aria-label="Cart">Cart (2)</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Discover your next favorite thing</h1>
+    <p>Minimal, responsive demo site for compatibility testing across browsers and devices.</p>
+    <button class="cta" id="openModal" aria-haspopup="dialog" aria-controls="modal">See today’s deals</button>
+  </section>
+
+  <!-- Products -->
+  <main class="container" id="products">
+    <h2>Featured products</h2>
+    <div class="grid" role="list">
+      <!-- Card 1 -->
+      <article class="card" role="listitem">
+        <img src="https://picsum.photos/id/1050/600/400" alt="Wireless headphones" />
+        <div class="card-body">
+          <h3>Wireless Headphones</h3>
+          <div class="rating" aria-label="Rating 4 out of 5">★★★★☆</div>
+          <div class="price">₹2,499</div>
+          <p class="note">Low-latency audio. Great for study sessions.</p>
+          <div class="actions">
+            <button class="btn primary">Add to Cart</button>
+            <button class="btn">Wishlist</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card" role="listitem">
+        <img src="https://picsum.photos/id/1040/600/400" alt="Smartwatch" />
+        <div class="card-body">
+          <h3>Smartwatch</h3>
+          <div class="rating" aria-label="Rating 5 out of 5">★★★★★</div>
+          <div class="price">₹3,999</div>
+          <p class="note">Sleep tracking and notifications.</p>
+          <div class="actions">
+            <button class="btn primary">Add to Cart</button>
+            <button class="btn">Wishlist</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card" role="listitem">
+        <img src="https://picsum.photos/id/1011/600/400" alt="Backpack" />
+        <div class="card-body">
+          <h3>Travel Backpack</h3>
+          <div class="rating" aria-label="Rating 3 out of 5">★★★☆☆</div>
+          <div class="price">₹1,599</div>
+          <p class="note">Lightweight and durable for daily commute.</p>
+          <div class="actions">
+            <button class="btn primary">Add to Cart</button>
+            <button class="btn danger">Remove</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="card" role="listitem">
+        <img src="https://picsum.photos/id/100/600/400" alt="Coffee maker" />
+        <div class="card-body">
+          <h3>Coffee Maker</h3>
+          <div class="rating" aria-label="Rating 4 out of 5">★★★★☆</div>
+          <div class="price">₹2,049</div>
+          <p class="note">Brew joy with every cup.</p>
+          <div class="actions">
+            <button class="btn primary">Add to Cart</button>
+            <button class="btn">Wishlist</button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Simple checkout form -->
+    <section class="form" id="contact" aria-labelledby="contactTitle">
+      <h3 id="contactTitle">Quick checkout</h3>
+      <div class="field">
+        <label for="name">Full name</label>
+        <input id="name" name="name" type="text" placeholder="Your name" />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" />
+      </div>
+      <div class="field">
+        <label for="payment">Payment method</label>
+        <select id="payment" name="payment">
+          <option>UPI</option>
+          <option>Card</option>
+          <option>Cash on Delivery</option>
+        </select>
+      </div>
+      <button class="btn primary submit" id="submitBtn">Place order</button>
+      <p class="note">Note: This is a demo form. No data is sent.</p>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <h3 id="modalTitle">Today’s deals</h3>
+      <p>Use code <strong>PRODIGY10</strong> for 10% off. Modal tests focus and buttons.</p>
+      <div class="row">
+        <button class="btn">View all</button>
+        <button class="btn primary" id="closeModal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <small>© 2025 Demo E‑com. Built for compatibility testing.</small>
+  </footer>
+
+  <script>
+    // Modal toggling (functionality test)
+    const open = document.getElementById('openModal');
+    const close = document.getElementById('closeModal');
+    const backdrop = document.getElementById('modalBackdrop');
+
+    function showModal() { backdrop.style.display = 'flex'; }
+    function hideModal() { backdrop.style.display = 'none'; }
+
+    open && open.addEventListener('click', showModal);
+    close && close.addEventListener('click', hideModal);
+    backdrop && backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) hideModal();
+    });
+
+    // Basic form validation (functionality test)
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn && submitBtn.addEventListener('click', () => {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if (!name || !email) {
+        alert('Please fill in name and email.');
+      } else {
+        alert('Order placed (demo).');
+      }
+    });
+  </script>
+</body>
+</html>
