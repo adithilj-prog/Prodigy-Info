@@ -1,6 +1,6 @@
 # Task-02: QA Testing Report – E-Commerce Demo Site
 
-## ✅ Overview
+## Overview
 This report documents the functional testing performed on the provided demo e-commerce site.  
 The focus was on **search**, **cart**, **checkout**, **navigation links**, and **banner images**.
 
