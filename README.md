@@ -7,7 +7,6 @@ It documents each assigned task with reports, demo code, and testing artifacts.
 ## Current Contents
 - **Task-01.md** → Test cases for a calculator application.
 - **Task-02.md** → Compatibility testing report for a demo e-commerce site.
-- **Task-02-demo.html** → Demo e-commerce page used for Task-02 testing.
 
 ## Upcoming Tasks
 Additional tasks will be added here as I complete them during the internship.  
