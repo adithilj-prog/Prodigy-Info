@@ -7,6 +7,7 @@ It documents each assigned task with reports, demo code, and testing artifacts.
 ## Current Contents
 - **Task-01.md** → Test cases for a calculator application.
 - **Task-02.md** → Compatibility testing report for a demo e-commerce site.
+- **Task‑03.md** → automation testing (both report + code).
 
 ## Upcoming Tasks
 Additional tasks will be added here as I complete them during the internship.  
