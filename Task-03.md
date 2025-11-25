@@ -1,11 +1,11 @@
 # Task-03: Automation Testing – Login and Order Flow
 
-## ✅ Scope
+##  Scope
 Automated testing of login, product interaction, and checkout flow using Selenium and ChromeDriver.
 
 ---
 
-## 🔍 Test Cases
+##  Test Cases
 
 ### 1. Login
 - **Positive Case**: Valid credentials →  Redirected to product page.
