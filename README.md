@@ -1,7 +1,7 @@
-# Prodigy-Info
-## Prodigy InfoTech Internship – Software Testing
+# Software-Testing
+## Software Testing Task
 
-This repository contains my ongoing work for the **Software Testing Internship at Prodigy InfoTech**.  
+This repository contains my ongoing work for the **Software Testing  Tasks**.  
 It documents each assigned task with reports, demo code, and testing artifacts.
 
 ##  Current Contents
